@@ -14,12 +14,12 @@ function setup() {
 
 function draw() {
     speedline();
+    frameRate(0.00001);
 }
 
 
 function speedline(){
 
-    frameRate(0.3);
 
     clear();
     for(var i =0;i<TWO_PI;i+=TWO_PI/options.Counts){
