@@ -43,22 +43,22 @@
 
 
 a:link{
-  color:#FFFFFF; 
+  color:#222222; 
   text-decoration:none; 
 }
 
 a:visited{
-  color:#FFFFFF; 
+  color:#222222; 
   text-decoration:none; 
 }
 
 a:hover{
-  color:#aab91f; 
+  color:red; 
   text-decoration: none;
 }
 
 a:active { 
-  color:#FFFFFF; 
+  color:#222222; 
   text-decoration:none; 
 } 
 
