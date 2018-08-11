@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Speed Line</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <link href="" rel="stylesheet">
+
+  <link rel="icon" href="image/1.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="image/1.ico" type="image/x-icon">
+
+  <link rel="stylesheet" type="text/css" href="fonts.css">
+
+  <script type="text/javascript" src="js/dat.gui.min.js"></script>
+  <script type="text/javascript" src="js/p5.min.js"></script>
+  <script type="text/javascript" src="js/p5.dom.min.js"></script>
+
+  <input id="img-path" type="file" />
+
+  <style type="text/css">
+  *{
+    margin:0;
+    padding:0;
+  }
+
+  #credits {
+    font-size: 12px;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    opacity: 0.8;
+    color: #939393;
+    max-width: 70%;
+    text-align: right;
+  }
+  #img-path {
+    display: none;
+  }
+
+</style>
+</head>
+<body>
+
+
+ <div id="credits"> 
+
+  <div class ="iconlink"> 
+    <div class = "socaial">
+      <span><a class="icon-weibo" href="https://weibo.com/psaiaevegas/profile?rightmod=1&wvr=6&mod=personnumber"  target="_blank"  data-icon="&#xe906;" ></a></span>
+      <span><a class="icon-zhihu" href="https://www.zhihu.com/people/wang-ya-sai/activities"  target="_blank"  data-icon="&#xe907;"></a></span>
+      <span><a class="icon-instagram" href="http://instagram.com/yasaisai"  target="_blank"  data-icon="&#xe903;"></a></span>
+      <span><a class="icon-twitter" href="https://twitter.com/yasai_wang"  target="_blank"  data-icon="&#xe905;"></a></span>
+    </div>
+    <div class = "socaial" style="color:#FFFFFF;font-size: 10pt; margin-right:10px;margin-top: -180px">Created by @yasai </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+ var type;
+ var options ={  
+  Color : '#111111',
+  Counts: 260,
+  Line : 'straight',
+  Width : 30,
+  CenterX: 0,
+  CenterY: 0,
+  Length : 400,
+}
+var imageControl,colorControl ,SmoothControl2,StrokeControl,Xcontrol,Ycontrol;
+
+window.onload = function() {
+  gui = new dat.GUI();
+
+  //folder1
+  var folder1 = gui.addFolder('Controls');
+
+  colorControl = folder1.addColor(options, 'Color');
+  colorControl.onChange(draw);
+  colorControl.listen();
+
+  LineControl = folder1.add(options, 'Line', ['straight','curved'] );
+  LineControl.listen();
+
+  LineControl.onChange(function(){
+    if(options.Line== 'straight'){
+      type = 'straight';  
+      draw();
+
+    }
+    else if(options.Line== 'curved'){
+      type = 'curved';  
+      draw();
+    }
+    
+  });
+
+
+  CountsControl = folder1.add(options, 'Counts',10,500);
+  CountsControl.onChange(draw);
+  CountsControl.listen();
+
+  StrokeControl = folder1.add(options, 'Width',5,50);
+  StrokeControl.onChange(draw);
+  StrokeControl.listen();
+
+  LengthControl = folder1.add(options, 'Length',100,800);
+  LengthControl.onChange(draw);
+  LengthControl.listen();
+
+  XControl = folder1.add(options, 'CenterX',-300,300);
+  XControl.onChange(draw);
+  XControl.listen();
+
+  YControl = folder1.add(options, 'CenterY',-300,300);
+  YControl.onChange(draw);
+  YControl.listen();
+
+
+  folder1.open();
+
+};
+
+function componentToHex(c) {
+  var hex = c.toString(16);
+  return hex.length == 1 ? "0" + hex : hex;
+}
+
+function rgbToHex(r, g, b) {
+  return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+}
+
+
+</script>
+
+<script type="text/javascript" src="js/sketch.js"></script>
+</body>
+
+</html>
+
