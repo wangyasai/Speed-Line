@@ -53,7 +53,7 @@
       <span><a class="icon-instagram" href="http://instagram.com/yasaisai"  target="_blank"  data-icon="&#xe903;"></a></span>
       <span><a class="icon-twitter" href="https://twitter.com/yasai_wang"  target="_blank"  data-icon="&#xe905;"></a></span>
     </div>
-    <div class = "socaial" style="color:#FFFFFF;font-size: 10pt; margin-right:10px;margin-top: -180px">Created by @yasai </div>
+    <div class = "socaial" style="color:#222222;font-size: 10pt; margin-right:10px;margin-top: -180px">Created by @yasai </div>
   </div>
 </div>
 
@@ -62,14 +62,17 @@
  var type;
  var options ={  
   Color : '#111111',
-  Counts: 260,
+  Counts: 200,
   Line : 'straight',
   Width : 30,
   CenterX: 0,
   CenterY: 0,
   Length : 400,
+  Save : function(){
+        saveFrames("Speed-Line", "png", 1, 1);
+  },
 }
-var imageControl,colorControl ,SmoothControl2,StrokeControl,Xcontrol,Ycontrol;
+var imageControl,colorControl ,SmoothControl2,StrokeControl,Xcontrol,Ycontrol,SaveControl;
 
 window.onload = function() {
   gui = new dat.GUI();
@@ -106,7 +109,7 @@ window.onload = function() {
   StrokeControl.onChange(draw);
   StrokeControl.listen();
 
-  LengthControl = folder1.add(options, 'Length',100,800);
+  LengthControl = folder1.add(options, 'Length',100,2000);
   LengthControl.onChange(draw);
   LengthControl.listen();
 
@@ -118,7 +121,7 @@ window.onload = function() {
   YControl.onChange(draw);
   YControl.listen();
 
-
+  var SaveControl = folder1.add(options, 'Save');
   folder1.open();
 
 };
