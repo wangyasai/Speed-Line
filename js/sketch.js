@@ -19,8 +19,6 @@ function draw() {
 
 
 function speedline(){
-
-
     clear();
     for(var i =0;i<TWO_PI;i+=TWO_PI/options.Counts){
         push();
